@@ -1,0 +1,23 @@
+<p id='notice'><%= notice %></p>
+<table class="table">
+  <thead class="bg-primary">
+    <th scope='col'> User Name </th>
+    <th scope='col'> User Email </th>
+    <th scope='col'> User Role </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= @user.email %></td>
+      <td><%= @user.role %></td>
+    </tr>
+  </tbody>
+  <br>
+  <table class = "table" >
+    <tbody>
+      <tr>
+        <%= render 'profile' %>
+      </tr>
+    </tbody>
+    <td><%= link_to 'Back', root_path, class: 'actions btn btn-primary' %></td>
+  </table>
