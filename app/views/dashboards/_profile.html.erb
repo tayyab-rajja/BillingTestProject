@@ -1,0 +1,32 @@
+<% @user.plans.each do |plan| %>
+  <thead>
+    <th scope='col'> No# </th>
+    <th scope='col'> Plan Name </th>
+    <th scope='col'> Monthly Fee </th>
+  </thead>
+  <tbody>
+    <td><%= plan.id %></td>
+    <td><%= plan.plan_name %></td>
+    <td><%= plan.monthly_fee %></td>
+    <td>
+      <table class = "table">
+        <thead>
+          <th scope='col'> Feature Name </th>
+          <th scope='col'> Feature Code </th>
+          <th scope='col'> Feature Unit Price </th>
+          <th scope='col'> Feature max Unit Limit </th>
+        </thead>
+        <tbody>
+          <% plan.features.each do |feature| %>
+            <tr>
+              <td><%= feature.feature_name %></td>
+              <td><%= feature.feature_code %></td>
+              <td><%= feature.feature_unit_price %></td>
+              <td><%= feature.feature_max_unit_limit %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </td>
+  </tbody>
+<% end %>

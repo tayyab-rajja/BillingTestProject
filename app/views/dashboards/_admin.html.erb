@@ -1,0 +1,27 @@
+<div class="container main-container align-middle bg-light align-self-center">
+  <p id='notice'><%= notice %></p>
+  <table class="table">
+    <% @user.each do |user| %>
+      <thead>
+        <th scope='col'> ID </th>
+        <th scope='col'> User Name </th>
+        <th scope='col'> User Email </th>
+        <th scope='col'> User Role </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <% if user.buyer? %>
+            <td><%= link_to "Show Profile", dashboard_path(user.id), class: "btn btn-primary" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    <% end %><br>
+  </table>
+  <%if current_user.buyer?%>
+    <td><%= link_to 'Back', dashboard_path(current_user.id), class: 'actions btn btn-primary' %></td>
+  <%end%>
+</div>
