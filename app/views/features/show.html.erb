@@ -1,0 +1,20 @@
+<div class="container main-container align-middle bg-light align-self-center">
+  <p id="notice"><%= notice %></p>
+  <table class = "table">
+    <thead>
+      <th scope='col'> Feature Name </th>
+      <th scope='col'> Code </th>
+      <th scope='col'> Unit Price </th>
+      <th scope='col'> Max Unit Limit </th>
+      <th scope='col' colspan='2'></th>
+    </thead>
+    <tbody>
+      <td><%= @feature.feature_name %></td>
+      <td><%= @feature.feature_code %></td>
+      <td><%= @feature.feature_unit_price %></td>
+      <td><%= @feature.feature_max_unit_limit%></td>
+      <td><%= link_to 'Edit', edit_plan_feature_path([@plan,@feature]) if policy(Feature).edit? %></td>
+      <td><%= link_to 'Back', plans_path %></td>
+    </tbody>
+  </table>
+</div>

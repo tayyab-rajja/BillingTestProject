@@ -1,0 +1,12 @@
+<div class="container main-container align-middle bg-light align-self-center">
+  <%= form_with(model: @usage, local: true) do |form| %>
+    <div class="field form-group">
+      <%= form.label :Enter_Your_Extra_Usage_Units %>
+      <%= form.number_field :usage, min: 0, placeholder: "Usage",class: 'form-control form-control-lg' %>
+    </div>
+    <br>
+    <div class = "actions">
+      <%= form.submit "Update", class: "action btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
