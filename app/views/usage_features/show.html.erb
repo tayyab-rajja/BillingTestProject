@@ -1,0 +1,27 @@
+<div class="container main-container align-middle bg-light align-self-center">
+  <h1> Usage Features </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> Subscription ID </td>
+        <th scope="col"> Feature Name </td>
+        <th scope="col"> Extra Usage Units </td>
+        <th scope="col"> Extra Usage price </td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @subscriptions.each do |subsubscription| %>
+        <tr>
+          <% subscription.usage_features.each do |usage| %>
+            <tr>
+              <td><%= usage.id %></td>
+              <td><%= usage.feature.feature_name %></td>
+              <td><%= usage.usage %></td>
+              <td><%= usage.feature.feature_unit_price * usage.usage %></td>
+            </tr>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

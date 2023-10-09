@@ -1,0 +1,41 @@
+
+<div class="container main-container align-middle bg-light align-self-center">
+<%= form_with(model: [@plan, feature], local: false, class: "ajax") do |form| %>
+  <% if feature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(feature.errors.count, "error") %> prohibited this feature from being saved: </h2>
+      <ul>
+        <% feature.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class = "field form-group" >
+    <%= form.label :Name %>
+    <%= form.text_field :feature_name, class: 'form-control form-control-lg' , required: true %>
+  </div>
+
+  <div class = "field form-group" >
+    <%= form.label :Code %>
+    <%= form.text_field :feature_code, class: 'form-control form-control-lg' , required: true %>
+  </div>
+
+  <div class = "field form-group" >
+    <%= form.label :Unit_Price %>
+    <%= form.number_field :feature_unit_price, class: 'form-control form-control-lg' , required: true %>
+  </div>
+
+  <div class = "field form-group" >
+    <%= form.label :Unit_limit %>
+    <%= form.number_field :feature_max_unit_limit, class: 'form-control form-control-lg', required: true %>
+  </div>
+  <br>
+
+  <div class = "actions" >
+    <%= form.submit "Create Feature", remote: true, class: "action btn btn-primary" %>
+  </div>
+  
+<% end %>
+</div>

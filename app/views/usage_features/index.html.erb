@@ -1,0 +1,26 @@
+<div class="container main-container align-middle bg-light align-self-center">
+  <h1> Usage Features </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> Feature ID </td>
+        <th scope="col"> Name </td>
+        <th scope="col"> Extra Usage Units </td>
+        <th scope="col"> Extra Usage Price </td>
+      </tr>
+      <thead>
+        <tbody>
+          <% @subscriptions.each do |subscription| %>
+            <% subscription.usage_features.each do |usage| %>
+              <tr>
+                <td><%= usage.feature_id %></td>
+                <td><%= usage.feature.feature_name %></td>
+                <td><%= usage.usage %></td>
+                <td><%= usage.extra_usage_price %></td>
+                <td><%= link_to 'Edit Usage', edit_usage_feature_path(usage), method: :GET %>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
